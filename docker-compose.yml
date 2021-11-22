@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  server:
+    image: swipl:latest
+    volumes:
+      - ./:/app
+    ports:
+      - "3030:3030"
+    command: swipl /app/server.pl
+  client:
+    image: swipl:latest
+    volumes:
+      - ./:/app
+    command: swipl /app/client.pl
+    depends_on:
+      - server
