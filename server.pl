@@ -12,7 +12,7 @@ run :-
     format("Hash for ~w: ~d~n", [Data, Hash]),
     % now serve up the endpoint for the client
     http_server(http_dispatch, [port(3030)]),
-    format("server shutting down~n")
-    sleep(5).
+    sleep(5),
+    format("server shutting down~n").
 
 :- initialization run.
